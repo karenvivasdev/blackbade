@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Black & Blade | Barbershop</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- BOOTSTRAP ICONS -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/css.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="bio-container">
+
+
+    <!-- =========================
+         PERFIL
+    ========================== -->
+
+    <section class="perfil">
+
+
+        <div class="logo">
+            BB
+        </div>
+
+
+        <h1>
+            BLACK & BLADE
+        </h1>
+
+
+        <p class="categoria">
+            BARBERSHOP
+        </p>
+
+
+        <p class="descripcion">
+            Corte • Barba • Estilo
+        </p>
+
+
+        <!-- REDES -->
+
+        <div class="redes">
+
+            <a href="#" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="#" aria-label="TikTok">
+                <i class="bi bi-tiktok"></i>
+            </a>
+
+            <a href="#" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         BOTONES
+    ========================== -->
+
+    <section class="botones">
+
+
+        <!-- SERVICIOS -->
+
+        <button
+            class="bio-btn"
+            id="btnServicios"
+        >
+
+            <span class="icono">
+                <i class="bi bi-scissors"></i>
+            </span>
+
+            <span>
+                Ver servicios
+            </span>
+
+            <i class="bi bi-chevron-right flecha"></i>
+
+        </button>
+
+
+
+        <!-- RESERVAR -->
+
+        <button
+            class="bio-btn"
+            id="btnReserva"
+        >
+
+            <span class="icono">
+                <i class="bi bi-calendar3"></i>
+            </span>
+
+            <span>
+                Reservar cita
+            </span>
+
+            <i class="bi bi-chevron-right flecha"></i>
+
+        </button>
+
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            href="https://wa.me/521XXXXXXXXXX"
+            class="bio-btn"
+            target="_blank"
+        >
+
+            <span class="icono">
+                <i class="bi bi-whatsapp"></i>
+            </span>
+
+            <span>
+                WhatsApp
+            </span>
+
+            <i class="bi bi-arrow-up-right flecha"></i>
+
+        </a>
+
+
+
+        <!-- UBICACIÓN -->
+
+        <a
+            href="https://maps.google.com"
+            class="bio-btn"
+            target="_blank"
+        >
+
+            <span class="icono">
+                <i class="bi bi-geo-alt"></i>
+            </span>
+
+            <span>
+                Cómo llegar
+            </span>
+
+            <i class="bi bi-arrow-up-right flecha"></i>
+
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="#"
+            class="bio-btn"
+        >
+
+            <span class="icono">
+                <i class="bi bi-instagram"></i>
+            </span>
+
+            <span>
+                Instagram
+            </span>
+
+            <i class="bi bi-arrow-up-right flecha"></i>
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         MODAL SERVICIOS
+    ========================== -->
+
+    <div
+        class="modal"
+        id="modalServicios"
+    >
+
+
+        <div class="modal-content">
+
+
+            <button
+                class="cerrar"
+                id="cerrarServicios"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+            <p class="modal-small">
+                NUESTROS
+            </p>
+
+
+            <h2>
+                Servicios
+            </h2>
+
+
+
+            <div class="servicios">
+
+
+                <div class="servicio">
+
+                    <div>
+
+                        <h3>
+                            Corte clásico
+                        </h3>
+
+                        <p>
+                            Corte personalizado + acabado.
+                        </p>
+
+                        <span>
+                            45 min
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        $250
+                    </strong>
+
+                </div>
+
+
+
+                <div class="servicio">
+
+                    <div>
+
+                        <h3>
+                            Corte + barba
+                        </h3>
+
+                        <p>
+                            Corte personalizado + arreglo de barba.
+                        </p>
+
+                        <span>
+                            60 min
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        $350
+                    </strong>
+
+                </div>
+
+
+
+                <div class="servicio">
+
+                    <div>
+
+                        <h3>
+                            Barba
+                        </h3>
+
+                        <p>
+                            Perfilado y arreglo de barba.
+                        </p>
+
+                        <span>
+                            30 min
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        $180
+                    </strong>
+
+                </div>
+
+
+
+                <div class="servicio">
+
+                    <div>
+
+                        <h3>
+                            Corte premium
+                        </h3>
+
+                        <p>
+                            Corte + lavado + styling.
+                        </p>
+
+                        <span>
+                            60 min
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        $400
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                class="btn-principal"
+                id="btnReservarDesdeServicios"
+            >
+
+                Reservar una cita
+
+                <i class="bi bi-arrow-right"></i>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         MODAL RESERVA
+    ========================== -->
+
+    <div
+        class="modal"
+        id="modalReserva"
+    >
+
+
+        <div class="modal-content">
+
+
+            <button
+                class="cerrar"
+                id="cerrarReserva"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+
+            <!-- PASO 1 -->
+
+            <div id="paso1">
+
+
+                <p class="modal-small">
+                    AGENDA
+                </p>
+
+
+                <h2>
+                    Reserva tu cita
+                </h2>
+
+
+
+                <!-- SERVICIO -->
+
+                <label>
+                    Selecciona un servicio
+                </label>
+
+
+                <select id="servicioSeleccionado">
+
+                    <option value="">
+                        Selecciona...
+                    </option>
+
+                    <option value="Corte clásico - $250">
+                        Corte clásico — $250
+                    </option>
+
+                    <option value="Corte + barba - $350">
+                        Corte + barba — $350
+                    </option>
+
+                    <option value="Barba - $180">
+                        Barba — $180
+                    </option>
+
+                    <option value="Corte premium - $400">
+                        Corte premium — $400
+                    </option>
+
+                </select>
+
+
+
+                <!-- FECHA -->
+
+                <label>
+                    Selecciona una fecha
+                </label>
+
+
+                <input
+                    type="date"
+                    id="fecha"
+                >
+
+
+
+                <!-- HORARIOS -->
+
+                <label>
+                    Horario
+                </label>
+
+
+                <div
+                    class="horarios"
+                    id="horarios"
+                >
+
+                    <button type="button">
+                        4:00 PM
+                    </button>
+
+                    <button type="button">
+                        4:30 PM
+                    </button>
+
+                    <button type="button">
+                        5:00 PM
+                    </button>
+
+                    <button type="button">
+                        5:30 PM
+                    </button>
+
+                    <button type="button">
+                        6:00 PM
+                    </button>
+
+                    <button type="button">
+                        6:30 PM
+                    </button>
+
+                    <button type="button">
+                        7:00 PM
+                    </button>
+
+                    <button type="button">
+                        7:30 PM
+                    </button>
+
+                </div>
+
+
+
+                <button
+                    class="btn-principal"
+                    id="continuarReserva"
+                >
+
+                    Continuar
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- PASO 2 -->
+
+            <div
+                id="paso2"
+                class="oculto"
+            >
+
+
+                <p class="modal-small">
+                    CASI LISTO
+                </p>
+
+
+                <h2>
+                    Tus datos
+                </h2>
+
+
+
+                <label>
+                    Tu nombre
+                </label>
+
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Escribe tu nombre"
+                >
+
+
+
+                <label>
+                    Teléfono
+                </label>
+
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    placeholder="10 dígitos"
+                >
+
+
+
+                <!-- RESUMEN -->
+
+                <div class="resumen">
+
+
+                    <p>
+
+                        <span>
+                            Servicio
+                        </span>
+
+                        <strong
+                            id="resumenServicio"
+                        ></strong>
+
+                    </p>
+
+
+                    <p>
+
+                        <span>
+                            Fecha
+                        </span>
+
+                        <strong
+                            id="resumenFecha"
+                        ></strong>
+
+                    </p>
+
+
+                    <p>
+
+                        <span>
+                            Hora
+                        </span>
+
+                        <strong
+                            id="resumenHora"
+                        ></strong>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <button
+                    class="btn-principal"
+                    id="confirmarReserva"
+                >
+
+                    Confirmar reserva
+
+                    <i class="bi bi-check-lg"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         FORMULARIO OCULTO
+    ========================== -->
+
+    <iframe
+        name="reservaFrame"
+        id="reservaFrame"
+        style="display:none;"
+    ></iframe>
+
+
+    <form
+        id="formReserva"
+        method="POST"
+        target="reservaFrame"
+        action="https://script.google.com/macros/s/AKfycbweqzvNY6sVzVvtGKqNCKw_NsqhRNGX9ylTlS_mMDlRvleLmvk2F0CJAZp180SUrAsa/exec"
+        style="display:none;"
+    >
+
+        <input
+            type="hidden"
+            name="nombre"
+            id="formNombre"
+        >
+
+        <input
+            type="hidden"
+            name="telefono"
+            id="formTelefono"
+        >
+
+        <input
+            type="hidden"
+            name="servicio"
+            id="formServicio"
+        >
+
+        <input
+            type="hidden"
+            name="fecha"
+            id="formFecha"
+        >
+
+        <input
+            type="hidden"
+            name="hora"
+            id="formHora"
+        >
+
+    </form>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <span>
+            Hecho con
+        </span>
+
+        <strong>
+            SD Bio
+        </strong>
+
+        <span>
+            · Servicios Digitales
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="/js.js"></script>
+
+
+</body>
+
+</html>

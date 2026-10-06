@@ -1,0 +1,926 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #292929 0%,
+            #111111 45%,
+            #080808 100%
+        );
+
+    color: #ffffff;
+
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.bio-container {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: auto;
+
+    padding: 45px 20px 25px;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================
+   PERFIL
+========================= */
+
+.perfil {
+
+    text-align: center;
+
+    animation:
+        aparecer
+        0.7s
+        ease;
+
+}
+
+
+.logo {
+
+    width: 85px;
+
+    height: 85px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #555;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 28px;
+
+    letter-spacing: 2px;
+
+    background: #181818;
+
+}
+
+
+.perfil h1 {
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.categoria {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #bcbcbc;
+
+    margin-bottom: 12px;
+
+}
+
+
+.descripcion {
+
+    color: #d4d4d4;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   REDES
+========================= */
+
+.redes {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.redes a {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #3d3d3d;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+.redes a:hover {
+
+    background: white;
+
+    color: #111;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.botones {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.bio-btn {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 62px;
+
+    padding: 0 20px;
+
+    border-radius: 18px;
+
+    border:
+        1px solid #363636;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        all
+        0.3s
+        ease;
+
+}
+
+
+.bio-btn:hover {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    border-color: #777;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.icono {
+
+    width: 35px;
+
+    font-size: 19px;
+
+}
+
+
+.flecha {
+
+    margin-left: auto;
+
+    color: #aaa;
+
+}
+
+
+/* =========================
+   MODALES
+========================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.75
+        );
+
+    backdrop-filter:
+        blur(8px);
+
+    display: none;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    z-index: 100;
+
+}
+
+
+.modal.activo {
+
+    display: flex;
+
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #171717;
+
+    border:
+        1px solid #333;
+
+    border-radius:
+        28px
+        28px
+        0
+        0;
+
+    padding:
+        35px
+        22px
+        30px;
+
+    position: relative;
+
+    animation:
+        subir
+        0.35s
+        ease;
+
+}
+
+
+.cerrar {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 20px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #444;
+
+    background: #222;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+.modal-small {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #999;
+
+    margin-bottom: 5px;
+
+}
+
+
+.modal-content h2 {
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.servicios {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.servicio {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: #202020;
+
+    border:
+        1px solid #303030;
+
+}
+
+
+.servicio h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.servicio p {
+
+    font-size: 13px;
+
+    color: #aaa;
+
+    line-height: 1.5;
+
+    margin-bottom: 8px;
+
+}
+
+
+.servicio span {
+
+    font-size: 11px;
+
+    color: #777;
+
+}
+
+
+.servicio strong {
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 21px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+label {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: #bbb;
+
+    margin-bottom: 8px;
+
+    margin-top: 18px;
+
+}
+
+
+select,
+input {
+
+    width: 100%;
+
+    height: 52px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid #3b3b3b;
+
+    background: #222;
+
+    color: white;
+
+    padding: 0 15px;
+
+    font-family: inherit;
+
+    outline: none;
+
+}
+
+
+select:focus,
+input:focus {
+
+    border-color: #777;
+
+}
+
+
+/* =========================
+   HORARIOS
+========================= */
+
+.horarios {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 8px;
+
+}
+
+
+.horarios button {
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid #3a3a3a;
+
+    background: #222;
+
+    color: #ddd;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.2s;
+
+}
+
+
+.horarios button:hover,
+.horarios button.seleccionado {
+
+    background: white;
+
+    color: #111;
+
+    border-color: white;
+
+}
+
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+.btn-principal {
+
+    width: 100%;
+
+    height: 55px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: white;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-principal:hover {
+
+    transform:
+        translateY(-2px);
+
+    background: #ddd;
+
+}
+
+
+.btn-principal i {
+
+    margin-left: 8px;
+
+}
+
+
+/* =========================
+   RESUMEN
+========================= */
+
+.resumen {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    background: #222;
+
+    border:
+        1px solid #333;
+
+}
+
+
+.resumen p {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 9px 0;
+
+    font-size: 13px;
+
+}
+
+
+.resumen span {
+
+    color: #888;
+
+}
+
+
+.resumen strong {
+
+    text-align: right;
+
+}
+
+
+/* =========================
+   CONFIRMACIÓN
+========================= */
+
+.confirmacion {
+
+    text-align: center;
+
+    padding: 15px 0;
+
+}
+
+
+.check-confirmacion {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin:
+        0 auto 22px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+}
+
+
+.mensaje-confirmacion {
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.detalle-reserva {
+
+    background: #222;
+
+    border:
+        1px solid #333;
+
+    border-radius: 18px;
+
+    padding:
+        10px 18px;
+
+    text-align: left;
+
+}
+
+
+.detalle-reserva div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 0;
+
+    border-bottom:
+        1px solid #333;
+
+}
+
+
+.detalle-reserva div:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.detalle-reserva span {
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+.detalle-reserva strong {
+
+    font-size: 13px;
+
+    text-align: right;
+
+}
+
+
+/* =========================
+   OCULTO
+========================= */
+
+.oculto {
+
+    display: none;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    margin-top: auto;
+
+    padding-top: 40px;
+
+    color: #666;
+
+    font-size: 11px;
+
+}
+
+
+footer strong {
+
+    color: #aaa;
+
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes subir {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 700px) {
+
+    .bio-container {
+
+        padding-top: 70px;
+
+    }
+
+
+    .modal {
+
+        align-items: center;
+
+    }
+
+
+    .modal-content {
+
+        border-radius: 28px;
+
+        max-height: 85vh;
+
+    }
+
+}
