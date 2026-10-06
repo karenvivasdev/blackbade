@@ -1,4 +1,6 @@
-/* =========================================
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbzwExnK8rTMegp_3QmpFdbvYsXbOXCLdrx5oyg1U7DTPeYU10HNo-GizfhOWlT54bLm/exec";
+
 
 /* =========================================
    ELEMENTOS
@@ -30,11 +32,6 @@ const btnReservarDesdeServicios =
 const fecha =
     document.getElementById("fecha");
 
-const horarios =
-    document.querySelectorAll(
-        ".horarios button"
-    );
-
 const continuarReserva =
     document.getElementById(
         "continuarReserva"
@@ -65,44 +62,88 @@ let horarioSeleccionado = "";
 
 let serviciosDisponibles = [];
 
+let horariosDisponibles = [];
+
 
 /* =========================================
-   CARGAR DATOS DESDE GOOGLE SHEETS
+   CARGAR DATOS
 ========================================= */
 
 async function cargarDatos() {
 
     try {
 
+        console.log("🔄 Cargando datos...");
+
         const respuesta =
             await fetch(API_URL);
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "HTTP " + respuesta.status
+            );
+
+        }
 
         const datos =
             await respuesta.json();
 
+        console.log(
+            "✅ Datos recibidos:",
+            datos
+        );
+
 
         if (datos.error) {
 
-            console.error(
-                "Error de API:",
+            throw new Error(
                 datos.error
             );
-
-            return;
 
         }
 
 
+        /* ================================
+           SERVICIOS
+        ================================= */
+
         serviciosDisponibles =
-            datos.servicios.filter(
-                servicio =>
-                    String(
-                        servicio.Activo
-                    ).toLowerCase() === "sí" ||
-                    String(
-                        servicio.Activo
-                    ).toLowerCase() === "si"
-            );
+            (datos.servicios || [])
+                .filter(servicio => {
+
+                    const activo =
+                        String(
+                            servicio.Activo || ""
+                        )
+                        .trim()
+                        .toLowerCase();
+
+                    return (
+                        activo === "sí" ||
+                        activo === "si"
+                    );
+
+                });
+
+
+        /* ================================
+           HORARIOS
+        ================================= */
+
+        horariosDisponibles =
+            datos.horarios || [];
+
+
+        console.log(
+            "✂️ Servicios:",
+            serviciosDisponibles
+        );
+
+        console.log(
+            "🕐 Horarios:",
+            horariosDisponibles
+        );
 
 
         cargarServicios();
@@ -111,7 +152,7 @@ async function cargarDatos() {
     } catch (error) {
 
         console.error(
-            "No se pudieron cargar los datos:",
+            "❌ No se pudieron cargar los datos:",
             error
         );
 
@@ -126,9 +167,9 @@ async function cargarDatos() {
 
 function cargarServicios() {
 
-    /* -----------------------------------------
+    /* =====================================
        SELECT DE RESERVA
-    ----------------------------------------- */
+    ===================================== */
 
     selectorServicio.innerHTML = `
         <option value="">
@@ -145,11 +186,14 @@ function cargarServicios() {
                     "option"
                 );
 
+
             option.value =
                 `${servicio.Servicio} - $${servicio.Precio}`;
 
+
             option.textContent =
                 `${servicio.Servicio} — $${servicio.Precio}`;
+
 
             selectorServicio.appendChild(
                 option
@@ -159,9 +203,9 @@ function cargarServicios() {
     );
 
 
-    /* -----------------------------------------
+    /* =====================================
        MODAL DE SERVICIOS
-    ----------------------------------------- */
+    ===================================== */
 
     const contenedor =
         document.querySelector(
@@ -170,7 +214,13 @@ function cargarServicios() {
 
 
     if (!contenedor) {
+
+        console.warn(
+            "No se encontró el contenedor de servicios."
+        );
+
         return;
+
     }
 
 
@@ -184,6 +234,7 @@ function cargarServicios() {
                 document.createElement(
                     "div"
                 );
+
 
             elemento.className =
                 "servicio";
@@ -317,8 +368,7 @@ modalServicios.addEventListener(
     (e) => {
 
         if (
-            e.target ===
-            modalServicios
+            e.target === modalServicios
         ) {
 
             modalServicios.classList.remove(
@@ -336,8 +386,7 @@ modalReserva.addEventListener(
     (e) => {
 
         if (
-            e.target ===
-            modalReserva
+            e.target === modalReserva
         ) {
 
             modalReserva.classList.remove(
@@ -354,7 +403,8 @@ modalReserva.addEventListener(
    FECHA MÍNIMA
 ========================================= */
 
-const hoy = new Date();
+const hoy =
+    new Date();
 
 const año =
     hoy.getFullYear();
@@ -369,24 +419,29 @@ const dia =
         hoy.getDate()
     ).padStart(2, "0");
 
-
 fecha.min =
     `${año}-${mes}-${dia}`;
 
 
 /* =========================================
-   SELECCIONAR HORARIO
+   HORARIOS
 ========================================= */
 
+const horarios =
+    document.querySelectorAll(
+        ".horarios button"
+    );
+
+
 horarios.forEach(
-    (boton) => {
+    boton => {
 
         boton.addEventListener(
             "click",
             () => {
 
                 horarios.forEach(
-                    (b) => {
+                    b => {
 
                         b.classList.remove(
                             "seleccionado"
@@ -421,7 +476,6 @@ continuarReserva.addEventListener(
 
         const servicio =
             selectorServicio.value;
-
 
         const fechaSeleccionada =
             fecha.value;
@@ -496,7 +550,6 @@ continuarReserva.addEventListener(
             "oculto"
         );
 
-
         paso2.classList.remove(
             "oculto"
         );
@@ -512,7 +565,6 @@ continuarReserva.addEventListener(
 confirmarReserva.addEventListener(
     "click",
     () => {
-
 
         const nombre =
             document.getElementById(
@@ -533,8 +585,6 @@ confirmarReserva.addEventListener(
         const fechaSeleccionada =
             fecha.value;
 
-
-        /* VALIDACIONES */
 
         if (!nombre) {
 
@@ -595,7 +645,6 @@ confirmarReserva.addEventListener(
            PREPARAR FORMULARIO
         ================================= */
 
-
         document.getElementById(
             "formNombre"
         ).value =
@@ -627,7 +676,7 @@ confirmarReserva.addEventListener(
 
 
         /* =================================
-           ENVIAR A GOOGLE SHEETS
+           ENVIAR
         ================================= */
 
         document.getElementById(
@@ -636,7 +685,7 @@ confirmarReserva.addEventListener(
 
 
         /* =================================
-           MOSTRAR CONFIRMACIÓN
+           CONFIRMACIÓN
         ================================= */
 
         mostrarReservaConfirmada({
@@ -670,7 +719,6 @@ function mostrarReservaConfirmada(
     datos
 ) {
 
-
     const modalContent =
         document.querySelector(
             "#modalReserva .modal-content"
@@ -695,37 +743,25 @@ function mostrarReservaConfirmada(
 
         <div class="confirmacion">
 
-
             <div class="check-confirmacion">
 
                 <i class="bi bi-check-lg"></i>
 
             </div>
 
-
             <p class="modal-small">
-
                 RESERVA CONFIRMADA
-
             </p>
-
 
             <h2>
-
                 ¡Nos vemos pronto!
-
             </h2>
 
-
             <p class="mensaje-confirmacion">
-
                 Tu cita ha sido registrada correctamente.
-
             </p>
 
-
             <div class="detalle-reserva">
-
 
                 <div>
 
@@ -778,7 +814,6 @@ function mostrarReservaConfirmada(
 
                 </div>
 
-
             </div>
 
 
@@ -790,7 +825,6 @@ function mostrarReservaConfirmada(
                 Listo
 
             </button>
-
 
         </div>
 
